@@ -1386,6 +1386,8 @@ class frame(object):
         fn, ea = by(func), interface.address.inside(ea)
         return idaapi.get_spd(fn, ea)
 
+    @document.aliases('frame.arguments')
+    @document.namespace
     class args(object):
         """
         This namespace is for returning information about the arguments
@@ -1467,6 +1469,8 @@ class frame(object):
             return max - total
     arguments = args    # XXX: ns alias
 
+    @document.aliases('frame.vars')
+    @document.namespace
     class lvars(object):
         """
         This namespace provides information about the local variables
@@ -1493,6 +1497,7 @@ class frame(object):
             return fn.frsize
     vars = lvars    # XXX: ns alias
 
+    @document.namespace
     class regs(object):
         """
         This namespace provides information about the registers that
